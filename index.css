@@ -277,6 +277,7 @@ footer {
     align-items: center;
     opacity: 0;
     transition: 0.225s;
+    pointer-events: none;
 }
 
 .menu.open {
