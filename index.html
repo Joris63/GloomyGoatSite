@@ -20,20 +20,28 @@
     />
   </head>
   <body>
-    <section class="menu animate__animated">
+    <div class="hamburger_menu_button" onClick="toggleMenu()">
+      <div class="hamburger_menu"></div>
+    </div>
+    <section class="menu">
       <ul>
-        <li><a href="#mission" onclick="toggleMenu()">Our Mission</a></li>
-        <li><a href="#about" onclick="toggleMenu()">About Us</a></li>
-        <li><a href="#team" onclick="toggleMenu()">Our Team</a></li>
-        <li><a href="#games" onclick="toggleMenu()">Our Games</a></li>
-        <li><a href="#news" onclick="toggleMenu()">News</a></li>
+        <li style="--i: 0">
+          <a href="#mission" onclick="toggleMenu()">Our Mission</a>
+        </li>
+        <li style="--i: 1">
+          <a href="#about" onclick="toggleMenu()">About Us</a>
+        </li>
+        <li style="--i: 2">
+          <a href="#team" onclick="toggleMenu()">Our Team</a>
+        </li>
+        <li style="--i: 3">
+          <a href="#games" onclick="toggleMenu()">Our Games</a>
+        </li>
+        <li style="--i: 4"><a href="#news" onclick="toggleMenu()">News</a></li>
       </ul>
     </section>
 
     <section class="main">
-      <div class="hamburger_menu_button" onClick="toggleMenu()">
-        <div class="hamburger_menu"></div>
-      </div>
       <div class="main_content_box">
         <img class="logo animate__animated" src="./assets/logo.png" alt="" />
         <h1 class="team_name">Gloomy Goat Games</h1>
@@ -215,20 +223,24 @@
     <footer></footer>
 
     <script>
+      history.scrollRestoration = "manual";
+
       // Menu toggle
       var toggle = true;
       var hamburgerMenu = document.getElementsByClassName("hamburger_menu");
       var menu = document.getElementsByClassName("menu");
+      var body = document.getElementsByTagName("body");
 
       function toggleMenu() {
         if (toggle) {
           hamburgerMenu[0].classList.add("open");
           menu[0].classList.add("open");
-
+          body[0].classList.add("fixed");
           toggle = false;
         } else {
           hamburgerMenu[0].classList.remove("open");
           menu[0].classList.remove("open");
+          body[0].classList.remove("fixed");
           toggle = true;
         }
       }

@@ -25,12 +25,17 @@
 
 body {
     background: var(--primary-bg-color);
-    background: linear-gradient(0deg, var(--primary-bg-color) 10%, #000 100%);
+    background: linear-gradient(0deg, var(--primary-bg-color) 50%, #000 100%);
+}
+
+.fixed {
+    overflow: hidden;
 }
 
 section {
     width: 100%;
     padding: 100px;
+    z-index: 1;
 }
 
 ul {
@@ -55,8 +60,7 @@ ul {
 
 .logo {
     z-index: 0;
-    animation: zoomIn 1s, fadeInLogo 1s;
-    animation-duration: 2s !important;
+    animation: fadeInLogo 1s;
 }
 
 .team_name {
@@ -71,12 +75,19 @@ ul {
 }
 
 @keyframes fadeInLogo {
-    from {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
         filter: brightness(10%);
     }
 
-    to {
-        filter: brightness(80%);
+    50% {
+        opacity: 50%;
+    }
+
+    100% {
+        filter: brightness(100%);
     }
 }
 
@@ -282,6 +293,7 @@ footer {
 
 .menu.open {
     opacity: 1;
+    pointer-events: unset;
 }
 
 .menu ul {
@@ -290,8 +302,16 @@ footer {
     align-items: center;
 }
 
+.menu.open li {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .menu li {
     margin: 15px;
+    transform: translateY(100px);
+    transition: all 0.5s ease calc(0.05s * var(--i));
+    opacity: 0;
 }
 
 .menu li a {
@@ -370,4 +390,26 @@ footer {
 .hamburger_menu.open::after {
     width: calc(0.75 * var(--width));
     transform: translateY(0px) rotate(-90deg);
+}
+
+/*  Scrollbar  */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--secondary-accent-color) var(--primary-bg-color);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--primary-bg-color);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-accent-color);
+    border-radius: 10px;
+    border: 0px solid var(--primary-accent-color);
 }
