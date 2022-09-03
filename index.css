@@ -34,7 +34,6 @@ body {
 
 section {
     width: 100%;
-    padding: 100px;
     z-index: 1;
 }
 
@@ -55,12 +54,13 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 200px;
 }
 
 .logo {
     z-index: 0;
-    animation: fadeInLogo 1s;
+    animation: fadeInLogo 1s 0.325s;
+    max-width: 100%;
+    object-fit: cover;
 }
 
 .team_name {
@@ -72,6 +72,7 @@ ul {
     font-family: "Amatic SC", cursive;
     font-size: 6em;
     z-index: 100;
+    text-align: center;
 }
 
 @keyframes fadeInLogo {
@@ -95,6 +96,7 @@ ul {
     width: 100%;
     margin-top: 80px;
     text-align: center;
+    padding-top: 40px;
 }
 
 .title h2 {
@@ -412,4 +414,31 @@ footer {
     background-color: var(--secondary-accent-color);
     border-radius: 10px;
     border: 0px solid var(--primary-accent-color);
+}
+
+@media (max-width: 1080px) {
+    .team_name {
+        top: 51%;
+        font-size: 5em;
+    }
+
+    .content .text_box {
+        width: 75%;
+    }
+
+    .hamburger_menu_button {
+        right: 50px;
+    }
+}
+
+@media (max-width: 666px) {
+    .team_name {
+        top: 80%;
+        font-size: 3em;
+    }
+
+    .hamburger_menu_button {
+        top: 25px;
+        right: 25px;
+    }
 }
