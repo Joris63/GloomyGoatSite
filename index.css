@@ -80,6 +80,7 @@ ul {
         opacity: 0;
         -webkit-transform: scale3d(0.3, 0.3, 0.3);
         transform: scale3d(0.3, 0.3, 0.3);
+        -webkit-filter: brightness(10%);
         filter: brightness(10%);
     }
 
@@ -88,6 +89,7 @@ ul {
     }
 
     100% {
+        -webkit-filter: brightness(100%);
         filter: brightness(100%);
     }
 }

@@ -43,7 +43,12 @@
 
     <section class="main">
       <div class="main_content_box">
-        <img class="logo animate__animated" src="./assets/logo.png" alt="" />
+        <img
+          class="logo"
+          id="logo"
+          src="./assets/logo.png"
+          alt=""
+        />
         <h1 class="team_name">Gloomy Goat Games</h1>
       </div>
     </section>
@@ -244,6 +249,27 @@
           toggle = true;
         }
       }
+
+      // Logo movement
+      const parallax = document.getElementById("logo");
+
+      window.addEventListener("scroll", function () {
+        let offset = window.pageYOffset;
+        let scale = (750 - offset) / 750;
+        let brightness = ((500 - offset) / 500) * 100;
+
+        if (brightness < 10) {
+          brightness = 10;
+        }
+
+        if (scale < 0) {
+          scale = 0;
+        }
+
+        parallax.style.transform = `scale3d(${scale},${scale},${scale})`;
+        parallax.style.filter = `brightness(${brightness}%)`;
+        console.log(offset);
+      });
     </script>
   </body>
 </html>
